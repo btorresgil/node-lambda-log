@@ -43,32 +43,72 @@ class LambdaLog extends EventEmitter {
             // Disables logging to the console (used for testing)
             silent: false
         };
-        
-        ['info', 'warn', 'error', 'debug'].forEach((lvl) => {
-            /**
-             * Shorthand log methods for `info`, `debug`, `warn` and `error`
-             * @param  {Any}    msg  Message to log. Can be any type, but string or `Error` reccommended.
-             * @param  {Object} meta Optional meta data to attach to the log.
-             * @return {Object}      The compiled log object that was logged to the console.
-             * 
-             * @example
-             * const log = require('lambda-log');
-             * 
-             * log.info('Test info log');
-             * log.debug('Test debug log');
-             * log.warn('Test warn log');
-             * log.error('Test error log');
-             */
-            this[lvl] = (msg, meta={}) => {
-                return this.log(lvl, msg, meta);
-            };
-        });
     }
-    
+
+    /**
+     * Shorthand log methods for `info` level
+     * @param  {Any}    msg  Message to log. Can be any type, but string or `Error` recommended.
+     * @param  {Object} meta Optional meta data to attach to the log.
+     * @return {Object}      The compiled log object that was logged to the console.
+     *
+     * @example
+     * const log = require('lambda-log');
+     *
+     * log.info('Test info log');
+     */
+    info(msg, meta={}) {
+        return this.log('info', msg, meta);
+    }
+
+    /**
+     * Shorthand log methods for `debug` level
+     * @param  {Any}    msg  Message to log. Can be any type, but string or `Error` recommended.
+     * @param  {Object} meta Optional meta data to attach to the log.
+     * @return {Object}      The compiled log object that was logged to the console.
+     *
+     * @example
+     * const log = require('lambda-log');
+     *
+     * log.debug('Test debug log');
+     */
+    debug(msg, meta={}) {
+        return this.log('debug', msg, meta);
+    }
+
+    /**
+     * Shorthand log methods for `warn` level
+     * @param  {Any}    msg  Message to log. Can be any type, but string or `Error` recommended.
+     * @param  {Object} meta Optional meta data to attach to the log.
+     * @return {Object}      The compiled log object that was logged to the console.
+     *
+     * @example
+     * const log = require('lambda-log');
+     *
+     * log.warn('Test warn log');
+     */
+    warn(msg, meta={}) {
+        return this.log('warn', msg, meta);
+    }
+
+    /**
+     * Shorthand log methods for `error` level
+     * @param  {Any}    msg  Message to log. Can be any type, but string or `Error` recommended.
+     * @param  {Object} meta Optional meta data to attach to the log.
+     * @return {Object}      The compiled log object that was logged to the console.
+     *
+     * @example
+     * const log = require('lambda-log');
+     *
+     * log.error('Test error log');
+     */
+    error(msg, meta={}) {
+        return this.log('error', msg, meta);
+    }
+
     /**
      * Creates log message based on the provided parameters
      * @param  {String} level Log level (`info`, `debug`, `warn` or `error`)
-     * @param  {Any}    msg   Message to log. Can be any type, but string or `Error` reccommended.
+     * @param  {Any}    msg   Message to log. Can be any type, but string or `Error` recommended.
      * @param  {Object} meta  Optional meta data to attach to the log.
      * @return {Object}       The compiled log object that was logged to the console.
      */
@@ -109,7 +149,7 @@ class LambdaLog extends EventEmitter {
      * Creates an error log message if provided `test` is a falsy value.
      * @since  1.4.0
      * @param  {Any}            test      A value which is tested for a falsy value.
-     * @param  {Any}            msg       Message to log if `test` is falsy. Can be any type, but string or `Error` reccommended.
+     * @param  {Any}            msg       Message to log if `test` is falsy. Can be any type, but string or `Error` recommended.
      * @param  {Object}         [meta={}] Optional meta data to attach to the log.
      * @return {Object|Boolean}           The compiled log object that was logged to the console or `false` if test passed.
      */
