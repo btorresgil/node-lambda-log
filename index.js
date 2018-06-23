@@ -47,7 +47,7 @@ class LambdaLog extends EventEmitter {
 
     /**
      * Shorthand log methods for `info` level
-     * @param  {Any}    msg  Message to log. Can be any type, but string or `Error` recommended.
+     * @param  {*}      msg  Message to log. Can be any type, but string or `Error` recommended.
      * @param  {Object} meta Optional meta data to attach to the log.
      * @return {Object}      The compiled log object that was logged to the console.
      *
@@ -62,7 +62,7 @@ class LambdaLog extends EventEmitter {
 
     /**
      * Shorthand log methods for `debug` level
-     * @param  {Any}    msg  Message to log. Can be any type, but string or `Error` recommended.
+     * @param  {*}      msg  Message to log. Can be any type, but string or `Error` recommended.
      * @param  {Object} meta Optional meta data to attach to the log.
      * @return {Object}      The compiled log object that was logged to the console.
      *
@@ -77,7 +77,7 @@ class LambdaLog extends EventEmitter {
 
     /**
      * Shorthand log methods for `warn` level
-     * @param  {Any}    msg  Message to log. Can be any type, but string or `Error` recommended.
+     * @param  {*}      msg  Message to log. Can be any type, but string or `Error` recommended.
      * @param  {Object} meta Optional meta data to attach to the log.
      * @return {Object}      The compiled log object that was logged to the console.
      *
@@ -92,7 +92,7 @@ class LambdaLog extends EventEmitter {
 
     /**
      * Shorthand log methods for `error` level
-     * @param  {Any}    msg  Message to log. Can be any type, but string or `Error` recommended.
+     * @param  {*}      msg  Message to log. Can be any type, but string or `Error` recommended.
      * @param  {Object} meta Optional meta data to attach to the log.
      * @return {Object}      The compiled log object that was logged to the console.
      *
@@ -108,7 +108,7 @@ class LambdaLog extends EventEmitter {
     /**
      * Creates log message based on the provided parameters
      * @param  {String} level Log level (`info`, `debug`, `warn` or `error`)
-     * @param  {Any}    msg   Message to log. Can be any type, but string or `Error` recommended.
+     * @param  {*}      msg   Message to log. Can be any type, but string or `Error` recommended.
      * @param  {Object} meta  Optional meta data to attach to the log.
      * @return {Object}       The compiled log object that was logged to the console.
      */
@@ -148,8 +148,8 @@ class LambdaLog extends EventEmitter {
     /**
      * Creates an error log message if provided `test` is a falsy value.
      * @since  1.4.0
-     * @param  {Any}            test      A value which is tested for a falsy value.
-     * @param  {Any}            msg       Message to log if `test` is falsy. Can be any type, but string or `Error` recommended.
+     * @param  {*}              test      A value which is tested for a falsy value.
+     * @param  {*}              msg       Message to log if `test` is falsy. Can be any type, but string or `Error` recommended.
      * @param  {Object}         [meta={}] Optional meta data to attach to the log.
      * @return {Object|Boolean}           The compiled log object that was logged to the console or `false` if test passed.
      */
@@ -161,7 +161,7 @@ class LambdaLog extends EventEmitter {
     /**
      * Checks if value is an Error or Error-like object
      * @static
-     * @param  {Any}     val Value to test
+     * @param  {*}       val Value to test
      * @return {Boolean}     Whether the value is an Error or Error-like object
      */
     static isError(val) {
